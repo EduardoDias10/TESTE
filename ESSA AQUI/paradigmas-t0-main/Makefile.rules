@@ -1,0 +1,9 @@
+%.opp: %.c
+	@$(CXX) $(CXXFLAGS) -c -o $(@) $(^)
+
+%.opp: %.cpp
+	@$(CXX) $(CXXFLAGS) -c -o $(@) $(^)
+
+features/%: features/%.opp src/genarray.opp
+	@$(CXX) $(CXXFLAGS) -o $(@) $(^) $(LDFLAGS)
+
